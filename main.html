@@ -5,8 +5,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+    <style>
+        body{
+            background-color: darkcyan;
+        }
+    </style>
 </head>
 <body>
-    <h1>Registration Form</h1>
+    
+    <form id="form" class="form" action="/">
+        <h1>Registration Form</h1>
+        <div class="container">
+            <div class="form-control">
+                <label for="username">Name</label>
+                <input type="text" name="" id="name" placeholder="Enter your name">
+                <small>Error msg</small>
+            </div>
+            <div class="form-control">
+                <label for="Birthdate">Birthdate</label>
+                <input type="date" name="" id="birth-date">
+                <small>Error msg</small>
+            </div>
+            <div class="form-control">
+                <label for="age">Age</label>
+                <input type="number" name="" id="age">
+                <small>Error msg</small>
+            </div>
+            <div class="form-control">
+                <label for="mobile">Mobile No</label>
+                <input type="number" name="" id="mobile-no">
+                <small>Error msg</small>
+            </div>
+            <div class="form-control">
+                <label for="salary">Salary</label>
+                <input id="inputRange"  type="range"  min="10000" max="15000" value="12000" />
+                <input id="inputNumber" type="number" min="10000" max="15000" value="12000" />
+                <small>Error msg</small>
+            </div>
+            <div class="form-control">
+                <label for="address">Address</label>
+                <textarea cols="30" rows="5"></textarea>
+                <small>Error msg</small>
+            </div>
+            <div class="form-control">
+                <label for="gender">Gender</label>
+                <input type="radio" name="">Male
+                <input type="radio" name="" >Female
+                
+            </div>
+            <div class="form-control">
+                <label for="mobile">Upload</label>
+                <input type="file"
+                 accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats
+                 -officedocument.wordprocessingml.document">
+                <small>Error msg</small>
+            </div>
+            <div class="form-control">
+                <label for="Country">Country</label>
+                <select>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>Chins</option>
+                    <option>Australia</option>
+                    <option>UK</option>
+                </select>
+                <small>Error msg</small>
+            </div>
+
+            <input type="submit" value="submit" class="btn" id="submit">
+            <input type="reset" value="clear" class="btn" id="clear">
+        </div>
+        
+    </form>
+
+
+    <script>
+        
+        const form = document.querySelector("#form")
+        const name = document.querySelector("#name")
+        const birthDate = document.querySelector("#birth-date")
+        const age = document.querySelector("#age")
+        const mobileNo = document.querySelector("#mobile-no")
+        const salary = document.querySelector("#salary")
+        const salaryRange = document.querySelector("#salary-range")
+
+        const range = document.querySelector("#inputRange")
+        const field = document.querySelector("#inputNumber")
+
+        range.addEventListener('input', function (e) { field.value = e.target.value; });
+        field.addEventListener('input', function (e) { range.value = e.target.value; });
+
+        var n = scaleValue(0, [-360,+360], [-1,1]);
+
+        function scaleValue(value, from, to) {
+            var scale = (to[1] - to[-1]) / (from[1] - from[-1]);
+            var capped = Math.min(from[1], Math.max(from[1], value)) - from[0];
+        console.log(capped);
+
+        }
+        
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+        })
+
+        const validate = () => {
+            const formVal = form.value.trim();
+            const nameVal = name.value.trim();
+            const ageVal = age.value.trim();
+            const salaryVal = salary.value.trim();
+            const mobileNoVal = mobileNo.value.trim();
+            const birthDateVal = birthDate.value.trim();
+            const salaryRangeVal= salaryRange.value.trim();
+
+            if(nameval === ""){
+                setErrormsg(name, "name cannot be blank")
+            }else {
+                setSuccessMsg(name)
+            }
+
+            if()
+        }
+    </script>
 </body>
 </html>
